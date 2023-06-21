@@ -11,28 +11,32 @@
       <div class="logo">MemeGenerator<span></span></div>
       <nav class="main-nav-container">
         <ul class="main-nav">
-          <li><a href="#">Gallery</a></li>
+          <li><a href="#" onclick="onInit()">Gallery</a></li>
           <li><a href="#">Memes</a></li>
           <li><a href="#">About</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="main-gallery"></section>
+      <section class="main-gallery">
+        <div class="gallery-container"></div>
+      </section>
       <section class="main-editor">
         <div class="canvas-container">
           <canvas id="meme-canvas" height="400" width="400"></canvas>
         </div>
         <input
           type="text"
-          name="enter-text"
+          name="text"
           id="enter-text"
           placeholder="Enter text"
-          onchange="setLineText()"
+          oninput="onTextChange(event)"
         />
       </section>
     </main>
     <script src="js/memeController.js"></script>
+    <script src="js/galleryController.js"></script>
     <script src="js/services/memeService.js"></script>
+    <script src="js/services/galleryService.js"></script>
   </body>
 </html>

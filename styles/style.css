@@ -35,3 +35,20 @@ canvas {
   display: block;
   margin: 3rem auto;
 }
+
+.main-editor {
+  display: none;
+}
+
+img {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

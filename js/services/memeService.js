@@ -1,38 +1,29 @@
 'use strict'
-let gImgs
-let gMeme
+
+let gMeme = {
+    selectedImgId: 1,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: '',
+            size: 20,
+            color: 'red'
+        }]
+}
+
+let gCurrLineIdx = setMemeImg(gMeme.selectedImgId)
 
 function getMeme() {
-    gImgs = createImg()
-    return gMeme = createMeme()
+    return gMeme
 }
 
-function createMeme() {
-    return gMeme = {
-        selectedImgId: gImgs[0].id,
-        selectedLineIdx: 0,
-        lines: [
-            {
-                txt: 'I sometimes eat Falafel',
-                size: 20,
-                color: 'red'
-            }]
-    }
+function setMemeImg(imgIdx) {
+    gMeme.selectedImgId = imgIdx
 }
 
-function createImg() {
-    return gImgs = [
-        {
-            id: 1,
-            url: `images/square/1.jpg`,
-            keywords: ['trump']
-        }
-    ]
+function setLineTxt(text, lineIdx = gCurrLineIdx) {
+    gMeme.lines[lineIdx].txt = text
 }
 
-function setLineTxt(elText) {
-
-
-}
 
 
