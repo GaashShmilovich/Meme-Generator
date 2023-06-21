@@ -12,7 +12,7 @@ function init() {
 function renderMeme() {
     const elImg = new Image()
     const meme = getMeme()
-    const text = getMeme().lines[0].txt
+    const text = meme.lines[0].txt
     elImg.src = `images/square/${meme.selectedImgId}.jpg`
 
     elImg.onload = () => {

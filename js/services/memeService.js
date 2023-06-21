@@ -11,18 +11,20 @@ let gMeme = {
         }]
 }
 
-let gCurrLineIdx = setMemeImg(gMeme.selectedImgId)
+let gCurrLineIdx = 0
 
 function getMeme() {
     return gMeme
 }
 
-function setMemeImg(imgIdx) {
-    gMeme.selectedImgId = imgIdx
+function setMemeImg(imgId) {
+    const meme = getMeme()
+    meme.selectedImgId = imgId
 }
 
 function setLineTxt(text, lineIdx = gCurrLineIdx) {
-    gMeme.lines[lineIdx].txt = text
+    const meme = getMeme()
+    meme.lines[lineIdx].txt = text
 }
 
 

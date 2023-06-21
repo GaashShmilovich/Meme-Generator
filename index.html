@@ -8,13 +8,16 @@
   </head>
   <body onload="onInit()">
     <header class="main-header">
-      <div class="logo">MemeGenerator<span></span></div>
+      <a href="#" class="logo">MemeGenerator</a>
       <nav class="main-nav-container">
         <ul class="main-nav">
           <li><a href="#" onclick="onInit()">Gallery</a></li>
           <li><a href="#">Memes</a></li>
           <li><a href="#">About</a></li>
         </ul>
+        <div class="hamburger">
+          <span class="bar fa-solid fa-bars"></span>
+        </div>
       </nav>
     </header>
     <main>
@@ -34,6 +37,10 @@
         />
       </section>
     </main>
+    <script
+      src="https://kit.fontawesome.com/572b007657.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/memeController.js"></script>
     <script src="js/galleryController.js"></script>
     <script src="js/services/memeService.js"></script>
