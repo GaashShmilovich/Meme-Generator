@@ -1,0 +1,28 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-header .main-nav-container {
+  display: flex;
+}
+
+.main-header .main-nav {
+  display: flex;
+}
+
+a {
+  color: black;
+  display: flex;
+  align-items: center;
+  width: 4rem;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
