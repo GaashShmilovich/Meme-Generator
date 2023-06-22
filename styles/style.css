@@ -31,12 +31,13 @@ body {
   align-items: center;
 }
 
-.logo {
+.main-header .logo {
   color: white;
   margin-inline-start: 3em;
+  font-size: 1.2rem;
 }
 
-a {
+.main-header a {
   color: white;
   display: flex;
   align-items: center;
@@ -77,6 +78,11 @@ img {
   height: 100px;
 }
 
+.download-link {
+  text-align: end;
+  color: black;
+}
+
 .gallery-container {
   display: flex;
   gap: 1.875em;
@@ -91,6 +97,10 @@ img {
 @media (max-width: 615px) {
   .hamburger {
     display: block;
+  }
+
+  .hamburger .fa-bars {
+    color: white;
   }
 
   .main-header .main-nav {
@@ -108,7 +118,7 @@ img {
     border: 1px solid black;
   }
 
-  a {
+  .main-nav a {
     color: black;
     margin-inline-start: 3em;
   }

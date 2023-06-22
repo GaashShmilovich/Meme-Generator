@@ -16,7 +16,7 @@
           <li><a href="#">About</a></li>
         </ul>
         <div class="hamburger">
-          <span class="bar fa-solid fa-bars"></span>
+          <i class="bar fa-solid fa-bars"></i>
         </div>
       </nav>
     </header>
@@ -26,7 +26,7 @@
       </section>
       <section class="main-editor">
         <div class="canvas-container">
-          <canvas id="meme-canvas" height="400" width="400"></canvas>
+          <canvas id="meme-canvas" height="300" width="300"></canvas>
         </div>
         <input
           type="text"
@@ -35,6 +35,24 @@
           placeholder="Enter text"
           oninput="onTextChange(event)"
         />
+        <label for="pick-color">
+          <i class="fa fa-palette"></i>
+          <input
+            type="color"
+            id="pick-color"
+            style="display: none"
+            oninput="pickColor()"
+          />
+        </label>
+        <button class="btn-increase" onclick="increaseFont()">A+</button>
+        <button class="btn-decrease" onclick="decreaseFont()">A-</button>
+        <a
+          href="#"
+          onclick="downloadCanvas(this)"
+          download="file-name"
+          class="download-link"
+          >Download Meme</a
+        >
       </section>
     </main>
     <script

@@ -21,8 +21,8 @@ function renderMeme() {
 
         // TODO: fix the blurry text
 
-        gCtx.font = '30px Impact'
-        gCtx.fillStyle = 'white'
+        gCtx.font = `${meme.lines[0].size}px Impact`
+        gCtx.fillStyle = meme.lines[0].color
         gCtx.strokeStyle = 'black'
         gCtx.textAlign = 'center'
         gCtx.lineWidth = 2
@@ -36,4 +36,33 @@ function renderMeme() {
 function onTextChange(ev) {
     setLineTxt(ev.target.value)
     renderMeme()
+}
+
+function downloadCanvas(elLink) {
+    const data = gElCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my-img'
+}
+
+
+function pickColor() {
+    const meme = getMeme()
+    var colorPick = document.getElementById("pick-color").value
+
+    renderMeme()
+    return meme.lines[0].color = colorPick
+
+}
+
+function increaseFont() {
+    const meme = getMeme()
+    meme.lines[0].size += 3
+    renderMeme()
+}
+
+function decreaseFont() {
+    const meme = getMeme()
+    meme.lines[0].size -= 3
+    renderMeme()
+
 }

@@ -7,8 +7,14 @@ let gMeme = {
         {
             txt: '',
             size: 20,
-            color: 'red'
-        }]
+            color: 'white'
+        },
+        {
+            txt: '',
+            size: 20,
+            color: 'white'
+        }
+    ]
 }
 
 let gCurrLineIdx = 0
