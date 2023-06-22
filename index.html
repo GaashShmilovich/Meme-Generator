@@ -25,38 +25,42 @@
         <div class="gallery-container"></div>
       </section>
       <section class="main-editor">
-        <div class="canvas-container">
-          <canvas id="meme-canvas" height="300" width="300"></canvas>
+        <div class="canvas-inputs">
+          <div class="canvas-container">
+            <canvas id="meme-canvas" height="300" width="300"></canvas>
+          </div>
+          <div class="inputs-container">
+            <input
+              type="text"
+              name="text"
+              id="enter-text"
+              placeholder="Enter text"
+              oninput="onTextChange(event)"
+            />
+            <button class="add-line" onclick="addLine()">+</button>
+            <button class="switch-line" onclick="onSwitchLine()">Switch</button>
+
+            <label for="pick-color">
+              <i class="fa fa-palette btn-clr"></i>
+              <input
+                type="color"
+                id="pick-color"
+                style="display: none"
+                oninput="pickColor()"
+              />
+            </label>
+
+            <button class="btn-increase" onclick="increaseFont()">A+</button>
+            <button class="btn-decrease" onclick="decreaseFont()">A-</button>
+            <a
+              href="#"
+              onclick="downloadCanvas(this)"
+              download="file-name"
+              class="download-link btn-download"
+              >Download</a
+            >
+          </div>
         </div>
-        <input
-          type="text"
-          name="text"
-          id="enter-text"
-          placeholder="Enter text"
-          oninput="onTextChange(event)"
-        />
-        <button class="add-line" onclick="addLine()">+</button>
-        <button class="switch-line" onclick="switchLine()">Switch</button>
-
-        <label for="pick-color">
-          <i class="fa fa-palette btn-clr"></i>
-          <input
-            type="color"
-            id="pick-color"
-            style="display: none"
-            oninput="pickColor()"
-          />
-        </label>
-
-        <button class="btn-increase" onclick="increaseFont()">A+</button>
-        <button class="btn-decrease" onclick="decreaseFont()">A-</button>
-        <a
-          href="#"
-          onclick="downloadCanvas(this)"
-          download="file-name"
-          class="download-link btn-download"
-          >Download</a
-        >
       </section>
     </main>
     <script

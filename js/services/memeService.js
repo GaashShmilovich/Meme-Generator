@@ -1,35 +1,43 @@
 'use strict'
 
 let gMeme = {
+
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'bla',
+            txt: '',
             size: 20,
-            color: 'white'
+            color: 'white',
+            x: 150,
+            y: 50
         },
-        // {
-        //     txt: 'bla',
-        //     size: 20,
-        //     color: 'white'
-        // }
     ]
 }
 
-
 function getMeme() {
+
     return gMeme
 }
 
 function setMemeImg(imgId) {
+
     const meme = getMeme()
     meme.selectedImgId = imgId
 }
 
-function setLineTxt(text, lineIdx = gCurrLineIdx) {
+function setLineTxt(text, lineIdx) {
+
     const meme = getMeme()
+    lineIdx = meme.selectedLineIdx
     meme.lines[lineIdx].txt = text
+}
+
+function switchLine() {
+
+    const meme = getMeme()
+    if (meme.selectedLineIdx === 1) return meme.selectedLineIdx = 0
+    else meme.selectedLineIdx = 1
 }
 
 
