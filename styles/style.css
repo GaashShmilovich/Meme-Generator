@@ -234,4 +234,8 @@ img {
   .canvas-inputs {
     display: block;
   }
+
+  .inputs-container {
+    justify-content: center;
+  }
 }
