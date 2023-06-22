@@ -5,19 +5,18 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: '',
+            txt: 'bla',
             size: 20,
             color: 'white'
         },
-        {
-            txt: '',
-            size: 20,
-            color: 'white'
-        }
+        // {
+        //     txt: 'bla',
+        //     size: 20,
+        //     color: 'white'
+        // }
     ]
 }
 
-let gCurrLineIdx = 0
 
 function getMeme() {
     return gMeme

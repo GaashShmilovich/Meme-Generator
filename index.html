@@ -35,8 +35,11 @@
           placeholder="Enter text"
           oninput="onTextChange(event)"
         />
+        <button class="add-line" onclick="addLine()">+</button>
+        <button class="switch-line" onclick="switchLine()">Switch</button>
+
         <label for="pick-color">
-          <i class="fa fa-palette"></i>
+          <i class="fa fa-palette btn-clr"></i>
           <input
             type="color"
             id="pick-color"
@@ -44,14 +47,15 @@
             oninput="pickColor()"
           />
         </label>
+
         <button class="btn-increase" onclick="increaseFont()">A+</button>
         <button class="btn-decrease" onclick="decreaseFont()">A-</button>
         <a
           href="#"
           onclick="downloadCanvas(this)"
           download="file-name"
-          class="download-link"
-          >Download Meme</a
+          class="download-link btn-download"
+          >Download</a
         >
       </section>
     </main>

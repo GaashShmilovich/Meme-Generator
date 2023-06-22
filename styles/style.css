@@ -6,6 +6,7 @@
 
 body {
   font-family: poppins, sans-serif;
+  background-color: #22252c;
 }
 
 .main-header {
@@ -13,6 +14,7 @@ body {
   align-items: center;
   justify-content: space-between;
   border-radius: 37px;
+  margin-block-start: 15px;
   background-color: #5970c1;
   background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 }
@@ -92,6 +94,50 @@ img {
 
 .gallery-container {
   margin-block-start: 30px;
+  background-color: #383b42;
+  border-radius: 10px;
+  margin-inline: 15px;
+  padding-block-start: 100px;
+  padding-block-end: 20px;
+}
+.btn-clr {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.btn-increase {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.btn-decrease {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.btn-download {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
 }
 
 @media (max-width: 615px) {

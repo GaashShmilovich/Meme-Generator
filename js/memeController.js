@@ -2,6 +2,8 @@
 
 let gElCanvas
 let gCtx
+var gCurrLineIdx = 0
+
 
 function init() {
     gElCanvas = document.querySelector('#meme-canvas')
@@ -9,10 +11,12 @@ function init() {
     renderMeme()
 }
 
+
 function renderMeme() {
     const elImg = new Image()
     const meme = getMeme()
-    const text = meme.lines[0].txt
+    const text1 = meme.lines[0].txt
+    const text2 = meme.lines[gCurrLineIdx].txt
     elImg.src = `images/square/${meme.selectedImgId}.jpg`
 
     elImg.onload = () => {
@@ -21,16 +25,31 @@ function renderMeme() {
 
         // TODO: fix the blurry text
 
-        gCtx.font = `${meme.lines[0].size}px Impact`
-        gCtx.fillStyle = meme.lines[0].color
+        gCtx.font = `${meme.lines[gCurrLineIdx].size}px Impact`
+        gCtx.fillStyle = meme.lines[gCurrLineIdx].color
         gCtx.strokeStyle = 'black'
         gCtx.textAlign = 'center'
         gCtx.lineWidth = 2
 
-        gCtx.fillText(text, gElCanvas.width / 2, 50)
-        gCtx.strokeText(text, gElCanvas.width / 2, 50)
+        gCtx.fillText(text1, gElCanvas.width / 2, 50)
+        gCtx.strokeText(text1, gElCanvas.width / 2, 50)
+
+        gCtx.fillText(text2, gElCanvas.width / 2, 250)
+        gCtx.strokeText(text2, gElCanvas.width / 2, 250)
     }
 
+}
+
+function addLine() {
+    const meme = getMeme()
+    const line2 =
+    {
+        txt: 'bla',
+        size: 20,
+        color: 'white'
+    }
+    meme.lines.push(line2)
+    renderMeme()
 }
 
 function onTextChange(ev) {
@@ -64,5 +83,15 @@ function decreaseFont() {
     const meme = getMeme()
     meme.lines[0].size -= 3
     renderMeme()
+}
 
+
+console.log('switchLine()', switchLine())
+
+function switchLine() {
+    gCurrLineIdx = 1
+    if (gCurrLineIdx = 1) {
+        gCurrLineIdx = 0
+    }
+    return gCurrLineIdx
 }
