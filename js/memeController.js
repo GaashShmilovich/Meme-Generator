@@ -86,23 +86,28 @@ function downloadCanvas(elLink) {
 function pickColor() {
 
     const meme = getMeme()
+    let lineIdx = meme.selectedLineIdx
     var colorPick = document.getElementById("pick-color").value
 
     renderMeme()
-    return meme.lines[0].color = colorPick
+    return meme.lines[lineIdx].color = colorPick
 }
 
 function increaseFont() {
 
     const meme = getMeme()
-    meme.lines[0].size += 3
+    let lineIdx = meme.selectedLineIdx
+
+    meme.lines[lineIdx].size += 3
     renderMeme()
 }
 
 function decreaseFont() {
 
     const meme = getMeme()
-    meme.lines[0].size -= 3
+    let lineIdx = meme.selectedLineIdx
+
+    meme.lines[lineIdx].size -= 3
     renderMeme()
 }
 
@@ -111,3 +116,19 @@ function onSwitchLine() {
     switchLine()
     renderMeme()
 }
+
+function onUploadImg() {
+
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+
+    function onSuccess(uploadedImgUrl) {
+
+        const url = encodeURIComponent(uploadedImgUrl)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
+    }
+    doUploadImg(imgDataUrl, onSuccess)
+}
+
+
+
+

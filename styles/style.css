@@ -1,3 +1,5 @@
+@import url(/styles/base/typography.css);
+
 * {
   padding: 0;
   margin: 0;
@@ -33,10 +35,37 @@ body {
   align-items: center;
 }
 
-.main-header .logo {
+.logo {
+  margin-inline-start: 30px;
+}
+
+.main-header .logo h3 {
   color: white;
-  margin-inline-start: 3em;
-  font-size: 1.2rem;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 0.6;
+  font-family: bangers, cursive;
+  letter-spacing: 5px;
+  margin-inline-start: 4em;
+}
+
+.main-header .logo p {
+  font-size: 14px;
+  margin-left: 0;
+  color: #545454;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-style: italic;
+  font-family: mansalva, cursive;
+  position: relative;
+}
+
+.main-header .logo:hover h3 {
+  color: rgb(222, 222, 222);
+}
+
+.main-header .logo:hover p {
+  color: #747474;
 }
 
 .main-header a {
@@ -86,6 +115,16 @@ canvas {
   border-radius: 15px;
 }
 
+.fb-btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
 .main-editor {
   display: none;
 }
@@ -109,6 +148,12 @@ canvas {
 img {
   width: 100px;
   height: 100px;
+  transition: 0.4s;
+}
+
+img:hover {
+  cursor: pointer;
+  scale: 1.2;
 }
 
 .download-link {
@@ -143,7 +188,7 @@ img {
   border: 2px solid black;
   background-color: white;
   color: black;
-  padding: 14px 20px;
+  padding: 20px 20px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 15px;
@@ -201,6 +246,10 @@ img {
     color: white;
   }
 
+  .hamburger .fa-bars:hover {
+    color: rgb(222, 222, 222);
+  }
+
   .main-header .main-nav {
     position: fixed;
     top: 75px;
@@ -223,7 +272,6 @@ img {
 
   li {
     display: flex;
-
     margin: 16px 0;
   }
 
