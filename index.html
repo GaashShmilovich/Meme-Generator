@@ -42,29 +42,44 @@
               placeholder="Enter text"
               oninput="onTextChange(event)"
             />
-            <button class="add-line" onclick="addLine()">+</button>
-            <button class="switch-line" onclick="onSwitchLine()">Switch</button>
-
-            <label for="pick-color">
-              <i class="fa fa-palette btn-clr"></i>
-              <input
-                type="color"
-                id="pick-color"
-                style="display: none"
-                oninput="pickColor()"
-              />
-            </label>
-
-            <button class="btn-increase" onclick="increaseFont()">A+</button>
-            <button class="btn-decrease" onclick="decreaseFont()">A-</button>
-            <a
-              href="#"
-              onclick="downloadCanvas(this)"
-              download="file-name"
-              class="download-link btn-download"
-              >Download</a
-            >
-            <button class="fb-btn" onclick="onUploadImg()">Share</button>
+            <div class="plus-switch">
+              <button class="add-line" onclick="addLine()">+</button>
+              <button class="switch-line" onclick="onSwitchLine()">
+                Switch
+              </button>
+            </div>
+            <div class="customize-sec">
+              <button class="btn-increase" onclick="increaseFont()">A+</button>
+              <button class="btn-decrease" onclick="decreaseFont()">A-</button>
+              <button class="btn-left" onclick="alignLeft()">
+                <img src="images/icons/left.png" alt="" />
+              </button>
+              <button class="btn-center" onclick="alignCenter()">
+                <img src="images/icons/center.png" alt="" />
+              </button>
+              <button class="btn-right" onclick="alignRight()">
+                <img src="images/icons/right.png" alt="" />
+              </button>
+              <label for="pick-color">
+                <i class="fa fa-palette btn-clr"></i>
+                <input
+                  type="color"
+                  id="pick-color"
+                  style="display: none"
+                  oninput="pickColor()"
+                />
+              </label>
+            </div>
+            <div class="download-share">
+              <a
+                href="#"
+                onclick="downloadCanvas(this)"
+                download="file-name"
+                class="download-link btn-download"
+                >Download</a
+              >
+              <button class="fb-btn" onclick="onUploadImg()">Share</button>
+            </div>
           </div>
         </div>
       </section>

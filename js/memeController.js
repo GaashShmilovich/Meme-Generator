@@ -2,8 +2,6 @@
 
 let gElCanvas
 let gCtx
-var gCurrLineIdx = 0
-
 
 function init() {
 
@@ -63,7 +61,8 @@ function addLine() {
         size: 20,
         color: 'white',
         x: 150,
-        y: 250
+        y: 250,
+        isDrag: false
     }
     if (meme.lines.length > 1) return
     meme.lines.push(line2)
@@ -127,6 +126,32 @@ function onUploadImg() {
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
     }
     doUploadImg(imgDataUrl, onSuccess)
+}
+
+function alignLeft() {
+    const meme = getMeme()
+    let lineIdx = meme.selectedLineIdx
+
+    meme.lines[lineIdx].x = 100
+    renderMeme()
+}
+
+function alignRight() {
+    const meme = getMeme()
+    let lineIdx = meme.selectedLineIdx
+
+    meme.lines[lineIdx].x = 200
+    renderMeme()
+
+}
+
+function alignCenter() {
+    const meme = getMeme()
+    let lineIdx = meme.selectedLineIdx
+
+    meme.lines[lineIdx].x = 150
+    renderMeme()
+
 }
 
 

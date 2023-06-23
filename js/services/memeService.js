@@ -7,16 +7,15 @@ let gMeme = {
     lines: [
         {
             txt: '',
+            x: 150,
+            y: 50,
             size: 20,
             color: 'white',
-            x: 150,
-            y: 50
         },
     ]
 }
 
 function getMeme() {
-
     return gMeme
 }
 
@@ -63,6 +62,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
 }
+
+
+
 
 
 
