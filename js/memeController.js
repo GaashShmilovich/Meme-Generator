@@ -2,12 +2,16 @@
 
 let gElCanvas
 let gCtx
+let gIsDragging = false
+let gDragStartPos
+let gLineDraggedIdx
 
 function init() {
 
     gElCanvas = document.querySelector('#meme-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderMeme()
+    eventListeners()
 }
 
 function renderMeme() {
@@ -24,6 +28,10 @@ function renderMeme() {
         meme.lines.forEach((line, idx) => {
 
             const fontSize = line.size
+            const text = line.txt
+            const rectPaddingX = 10
+            const rectPaddingY = 5
+            const rectPosY = line.y - fontSize - rectPaddingY
 
             gCtx.font = `${fontSize}px Impact`
             gCtx.fillStyle = line.color
@@ -31,29 +39,132 @@ function renderMeme() {
             gCtx.textAlign = 'center'
             gCtx.lineWidth = 2
 
-            gCtx.fillText(line.txt, line.x, line.y)
-            gCtx.strokeText(line.txt, line.x, line.y)
+            const textWidth = gCtx.measureText(text).width
+            const rectWidth = textWidth + rectPaddingX * 2
+            const rectHeight = fontSize + rectPaddingY * 2
+            const frameWidth = Math.min(rectWidth, gElCanvas.width - 20)
+            const framePosX = Math.max(line.x - frameWidth / 2, 0)
+
+            gCtx.fillText(text, line.x, line.y)
+            gCtx.strokeText(text, line.x, line.y)
 
             if (idx === meme.selectedLineIdx) {
 
-                const rectWidth = gElCanvas.width - 15
-                const rectHeight = fontSize + 8
-                const rectPosX = gElCanvas.width / 2
-                const rectPoxY = line.y - fontSize
-
                 gCtx.beginPath()
-                gCtx.rect(rectPosX - rectWidth / 2, rectPoxY, rectWidth, rectHeight)
+                gCtx.rect(framePosX, rectPosY, frameWidth, rectHeight)
                 gCtx.strokeStyle = 'white'
                 gCtx.lineWidth = 1
                 gCtx.stroke()
             }
-
         })
     }
 }
 
+function eventListeners() {
+
+    gElCanvas.addEventListener('mousedown', onDragStart)
+    gElCanvas.addEventListener('mousemove', onDrag)
+    gElCanvas.addEventListener('mouseup', onDragEnd)
+    gElCanvas.addEventListener('click', onCanvasClick)
+}
+
+function onCanvasClick(ev) {
+
+    const { offsetX, offsetY } = ev
+    const meme = getMeme()
+    let isTextClicked = false
+
+    meme.lines.forEach((line, idx) => {
+
+        const fontSize = line.size
+        const rectWidth = gElCanvas.width - 15
+        const rectHeight = fontSize + 8
+        const rectPosX = gElCanvas.width / 2
+        const rectPosY = line.y - fontSize
+
+        if (
+            offsetX >= rectPosX - rectWidth / 2 &&
+            offsetX <= rectPosX + rectWidth / 2 &&
+            offsetY >= rectPosY &&
+            offsetY <= rectPosY + rectHeight
+        ) {
+            isTextClicked = true
+            meme.selectedLineIdx = idx
+        }
+    })
+
+    if (!isTextClicked) {
+
+        meme.selectedLineIdx = -1
+    }
+    renderMeme()
+}
+
+function onDragStart(ev) {
+
+    const { offsetX, offsetY } = ev
+    const meme = getMeme()
+    let isTextClicked = false
+
+
+    meme.lines.forEach((line, idx) => {
+
+        const fontSize = line.size
+        const tempCanvas = document.createElement('canvas')
+        const tempCtx = tempCanvas.getContext('2d')
+        tempCtx.font = `${fontSize}px Arial`
+        const textWidth = tempCtx.measureText(line.txt).width
+        const textHeight = fontSize
+
+        const rectWidth = textWidth + 15
+        const rectHeight = textHeight + 8
+        const rectPosX = line.x - rectWidth / 2
+        const rectPosY = line.y - rectHeight / 2
+
+        if (
+            offsetX >= rectPosX &&
+            offsetX <= rectPosX + rectWidth &&
+            offsetY >= rectPosY &&
+            offsetY <= rectPosY + rectHeight
+        ) {
+            gIsDragging = true
+            gDragStartPos = { x: offsetX, y: offsetY }
+            gLineDraggedIdx = idx
+            isTextClicked = true
+            meme.selectedLineIdx = idx
+        }
+        if (!isTextClicked) {
+            meme.selectedLineIdx = -1
+        }
+    })
+}
+
+function onDrag(ev) {
+
+    if (!gIsDragging) return
+
+    const { offsetX, offsetY } = ev
+    const dx = offsetX - gDragStartPos.x
+    const dy = offsetY - gDragStartPos.y
+
+    const meme = getMeme()
+    const line = meme.lines[gLineDraggedIdx]
+    line.x += dx
+    line.y += dy
+
+    gDragStartPos = { x: offsetX, y: offsetY }
+    renderMeme()
+}
+
+function onDragEnd() {
+
+    gIsDragging = false
+}
+
 function addLine() {
 
+    let textInput = document.getElementById('enter-text')
+    textInput.value = ''
     const meme = getMeme()
     const line2 =
     {
@@ -66,6 +177,7 @@ function addLine() {
     }
     if (meme.lines.length > 1) return
     meme.lines.push(line2)
+    switchLine()
     renderMeme()
 }
 
@@ -79,7 +191,7 @@ function downloadCanvas(elLink) {
 
     const data = gElCanvas.toDataURL()
     elLink.href = data
-    elLink.download = 'my-img'
+    elLink.download = 'my-meme'
 }
 
 function pickColor() {
@@ -112,6 +224,8 @@ function decreaseFont() {
 
 function onSwitchLine() {
 
+    let textInput = document.getElementById('enter-text')
+    textInput.value = ''
     switchLine()
     renderMeme()
 }
@@ -129,6 +243,7 @@ function onUploadImg() {
 }
 
 function alignLeft() {
+
     const meme = getMeme()
     let lineIdx = meme.selectedLineIdx
 
@@ -137,21 +252,21 @@ function alignLeft() {
 }
 
 function alignRight() {
+
     const meme = getMeme()
     let lineIdx = meme.selectedLineIdx
 
     meme.lines[lineIdx].x = 200
     renderMeme()
-
 }
 
 function alignCenter() {
+
     const meme = getMeme()
     let lineIdx = meme.selectedLineIdx
 
     meme.lines[lineIdx].x = 150
     renderMeme()
-
 }
 
 

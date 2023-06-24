@@ -29,6 +29,7 @@ function setLineTxt(text, lineIdx) {
 
     const meme = getMeme()
     lineIdx = meme.selectedLineIdx
+
     meme.lines[lineIdx].txt = text
 }
 

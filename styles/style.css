@@ -20,6 +20,7 @@ body {
   background-color: #5970c1;
   background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 }
+
 .main-nav-container {
   display: flex;
   min-height: 75px;
@@ -27,6 +28,7 @@ body {
   align-items: center;
   padding: 0 24px;
 }
+
 .main-header .main-nav {
   display: flex;
   width: 100%;
@@ -108,6 +110,7 @@ canvas {
   cursor: pointer;
   border-radius: 15px;
   border: none;
+  font-weight: bold;
 }
 
 .switch-line {
@@ -121,7 +124,8 @@ canvas {
 }
 
 .fb-btn {
-  background-color: white;
+  background-color: #1e7cd3;
+  box-shadow: 1px 6px 0 #165c9c;
   color: black;
   padding: 14px 18px;
   font-size: 16px;
@@ -143,6 +147,7 @@ canvas {
   box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
     inset 0 5px 0 rgba(255, 255, 255, 0.58);
 }
+
 .btn-center {
   align-self: start;
   background-color: white;
@@ -173,6 +178,12 @@ canvas {
   border: none;
   box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
     inset 0 5px 0 rgba(255, 255, 255, 0.58);
+}
+
+.btn-download {
+  box-shadow: 1px 6px 0 #632687, inset 0 5px 0 #ffffff;
+  border-radius: 15px;
+  background-color: #8f44bb;
 }
 
 button img {
@@ -278,6 +289,7 @@ button img {
   padding-block-start: 100px;
   padding-block-end: 20px;
 }
+
 .btn-clr {
   align-self: start;
   background-color: white;
@@ -319,12 +331,13 @@ button img {
 }
 
 .btn-download {
-  background-color: white;
+  box-shadow: 1px 6px 0 #632687;
+  border-radius: 15px;
+  background-color: #8f44bb;
   color: black;
   padding: 14px 18px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 15px;
   text-decoration: none;
 }
 
@@ -339,7 +352,13 @@ button img {
 }
 
 .btn-download:hover {
-  background-color: rgb(211, 211, 211);
+  background-color: #b055e4;
+  box-shadow: none;
+}
+
+.canvas-inputs .fb-btn:hover {
+  background-color: #2e93f2;
+  box-shadow: none;
 }
 
 @media (max-width: 615px) {
@@ -401,7 +420,7 @@ button img {
   }
 
   .customize-sec {
-    height: 20rem;
+    height: 10;
   }
 
   .btn-clr {
