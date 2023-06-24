@@ -224,6 +224,8 @@ button img {
   width: 350px;
   height: 150px;
   justify-content: center;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   background-color: #19a59f;
   border-radius: 15px;
   margin-block: 20px;
