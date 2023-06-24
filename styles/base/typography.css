@@ -1,14 +1,14 @@
 @font-face {
   font-family: poppins;
-  src: url(fonts/Poppins-Regular.ttf);
+  src: url(/fonts/Poppins-Regular.ttf);
 }
 
 @font-face {
   font-family: mansalva;
-  src: url(fonts/Mansalva-Regular.ttf);
+  src: url(/fonts/Mansalva-Regular.ttf);
 }
 
 @font-face {
   font-family: bangers;
-  src: url(fonts/Bangers-Regular.ttf);
+  src: url(/fonts/Bangers-Regular.ttf);
 }
