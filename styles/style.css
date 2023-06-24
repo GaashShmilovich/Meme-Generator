@@ -217,6 +217,10 @@ button img {
   text-align: center;
 }
 
+.main-header a:hover {
+  scale: 1.3;
+}
+
 .customize-sec {
   display: flex;
   flex-wrap: wrap;
@@ -269,6 +273,12 @@ button img {
   gap: 1.875em;
   justify-content: center;
   flex-wrap: wrap;
+  margin-block-start: 30px;
+  background-color: #383b42;
+  border-radius: 10px;
+  margin-inline: 15px;
+  padding-block-start: 20px;
+  padding-block-end: 20px;
 }
 
 .inputs-container {
@@ -281,15 +291,6 @@ button img {
   flex-wrap: wrap;
   gap: 0.2em;
   border-radius: 30px;
-}
-
-.gallery-container {
-  margin-block-start: 30px;
-  background-color: #383b42;
-  border-radius: 10px;
-  margin-inline: 15px;
-  padding-block-start: 100px;
-  padding-block-end: 20px;
 }
 
 .btn-clr {
