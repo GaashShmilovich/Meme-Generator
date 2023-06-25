@@ -36,8 +36,10 @@ function setLineTxt(text, lineIdx) {
 function switchLine() {
 
     const meme = getMeme()
-    if (meme.selectedLineIdx === 1) return meme.selectedLineIdx = 0
-    else meme.selectedLineIdx = 1
+    if (meme.selectedLineIdx >= meme.lines.length - 1) return meme.selectedLineIdx = 0
+    else meme.selectedLineIdx++
+    console.log(meme.lines.length)
+    console.log('meme.selectedLineIdx', meme.selectedLineIdx)
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {

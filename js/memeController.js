@@ -94,7 +94,6 @@ function onCanvasClick(ev) {
     })
 
     if (!isTextClicked) {
-
         meme.selectedLineIdx = -1
     }
     renderMeme()
@@ -166,7 +165,7 @@ function addLine() {
     let textInput = document.getElementById('enter-text')
     textInput.value = ''
     const meme = getMeme()
-    const line2 =
+    let line =
     {
         txt: '',
         size: 20,
@@ -175,8 +174,9 @@ function addLine() {
         y: 250,
         isDrag: false
     }
-    if (meme.lines.length > 1) return
-    meme.lines.push(line2)
+
+    if (meme.selectedLineIdx >= 1) line.y = 160
+    meme.lines.push(line)
     switchLine()
     renderMeme()
 }
@@ -222,11 +222,24 @@ function decreaseFont() {
     renderMeme()
 }
 
-function onSwitchLine() {
-
+function onDeleteLine() {
+    const meme = getMeme()
+    if (!meme.lines.length) return
+    meme.lines.splice(meme.selectedLineIdx, 1)
     let textInput = document.getElementById('enter-text')
     textInput.value = ''
+    if (meme.lines.length === 1) {
+        meme.selectedLineIdx = 0
+    }
+    renderMeme()
+}
+
+function onSwitchLine() {
+    const meme = getMeme()
+    let textInput = document.getElementById('enter-text')
+
     switchLine()
+    textInput.value = (!textInput.value) ? '' : meme.lines[meme.selectedLineIdx].txt
     renderMeme()
 }
 

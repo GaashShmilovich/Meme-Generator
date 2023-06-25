@@ -16,7 +16,8 @@ body {
   align-items: center;
   justify-content: space-between;
   border-radius: 37px;
-  margin-block-start: 15px;
+  margin-block: 15px;
+  margin-inline: 15px;
   background-color: #5970c1;
   background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 }
@@ -77,7 +78,6 @@ body {
   justify-content: space-evenly;
   font-size: 0.8em;
   width: 4rem;
-  height: 2rem;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -111,6 +111,16 @@ canvas {
   border-radius: 15px;
   border: none;
   font-weight: bold;
+}
+
+.delete-line {
+  background-color: white;
+  color: black;
+  padding: 14px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
 }
 
 .switch-line {
@@ -200,21 +210,23 @@ button img {
   grid-template-columns: 1fr 1fr;
 }
 
-.inputs-container #enter-text {
-  width: 100%;
-}
-
 #enter-text {
+  width: 350px;
   background-color: white;
   color: black;
-  padding: 14px 18px;
+  padding: 14px 0px;
   font-size: 16px;
   cursor: text;
   border-radius: 15px;
+  margin-inline: auto;
   outline: none;
   border: none;
   box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
   text-align: center;
+}
+
+.main-header a {
+  font-size: 1em;
 }
 
 .main-header a:hover {
@@ -241,6 +253,7 @@ button img {
   justify-content: center;
   gap: 1em;
   margin-block-start: 1em;
+  margin-inline: auto;
   width: 350px;
 }
 
@@ -249,12 +262,11 @@ button img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 35px;
-  width: 350px;
+  margin-inline: auto;
 }
 
 .main-gallery img {
-  width: 100px;
-  height: 100px;
+  width: 18%;
   transition: 0.4s;
 }
 
@@ -284,8 +296,8 @@ button img {
 .inputs-container {
   display: flex;
   background-color: #3d3d3d;
-  margin: 3em 0;
-  margin-inline-end: 8em;
+  margin: 3rem 3rem;
+  /* margin-inline-end: 8em; */
   padding-inline: 40px;
   padding-block: 40px;
   flex-wrap: wrap;
@@ -377,6 +389,10 @@ button img {
     color: rgb(222, 222, 222);
   }
 
+  .main-header {
+    margin-inline: 1em;
+  }
+
   .main-header .main-nav {
     position: fixed;
     top: 75px;
@@ -416,14 +432,14 @@ button img {
     display: block;
   }
 
-  .inputs-container {
-    justify-content: center;
-    margin-inline-start: 2em;
-    margin-inline-end: 2em;
+  .customize-sec {
+    width: fit-content;
+    height: fit-content;
+    padding-block-end: 1em;
   }
 
-  .customize-sec {
-    height: 10;
+  .customize-sec button {
+    width: 3em;
   }
 
   .btn-clr {
